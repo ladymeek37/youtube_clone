@@ -1,8 +1,9 @@
 {
 	"info": {
-		"_postman_id": "d4409d57-7119-4339-bfae-1f3a18bc6341",
+		"_postman_id": "c95a49fd-c297-4e92-b209-418e141e79f7",
 		"name": "DRF_JWT_Backend",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24977349"
 	},
 	"item": [
 		{
@@ -49,7 +50,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\": \"dantheman\",\r\n    \"password\": \"password1@\"\r\n}",
+							"raw": "{\r\n    \"username\": \"ryleejustus\",\r\n    \"password\": \"Rylee'sPassword\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -147,6 +148,16 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc4MTI5MTEzLCJpYXQiOjE2NzcyNjUxMTMsImp0aSI6IjQxNGZlNDY1MDZlNzQ2NDViNjJkNTcxYTJkNWQ0Y2M5IiwidXNlcl9pZCI6MSwidXNlcm5hbWUiOiJsYWR5bWVlayIsImZpcnN0X25hbWUiOiIifQ.Y7k36PaauVWSyXzniPqA9g2cGFcxjYUcHmojDopKFBw",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [
 							{
@@ -216,6 +227,101 @@
 							"path": [
 								"api",
 								"cars",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Comments",
+			"item": [
+				{
+					"name": "Get_Comments_By_Video_Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/comments/-MhJ3QdVv4M/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"comments",
+								"-MhJ3QdVv4M",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET all comments",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/comments/all/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"comments",
+								"all",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST new comment for user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc4MjE1NzA5LCJpYXQiOjE2NzczNTE3MDksImp0aSI6ImJlMmIyNWNmMzI3NzRkNDhhMmQwOTE0MTIxMWViNGNjIiwidXNlcl9pZCI6NCwidXNlcm5hbWUiOiJyeWxlZWp1c3R1cyIsImZpcnN0X25hbWUiOiJSeWxlZSJ9.fxmeRpHRRPeTLVMyCWV0srFpaiyNeE4VIUtNwbXVTks",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"video_id\": \"xK7LAKFYO0E&t=1323s\",\n    \"text\": \"I want to make a skate video like this\",\n    \"likes\": 0,\n    \"dislikes\": 0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/comments/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"comments",
 								""
 							]
 						}
