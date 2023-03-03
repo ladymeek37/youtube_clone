@@ -1,6 +1,7 @@
 // General Imports
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
+import {KEY} from "./localKey";
 
 // Pages Imports
 import HomePage from "./pages/HomePage/HomePage";
@@ -30,8 +31,10 @@ function App() {
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
       </Routes>
+      <p>{KEY}</p>
       <Footer />
     </div>
+
   );
 }
 
