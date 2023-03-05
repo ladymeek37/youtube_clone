@@ -1,0 +1,16 @@
+.homepagevideocontainer{
+    display:flex;
+    flex-flow: row wrap;
+    justify-content:space-around;
+    gap: 80px;
+    padding: 200px;
+}
+
+.parent {
+    display: flex;
+    height: 400px; /* Or whatever */
+  }
+  
+  .child {
+    margin: auto
+  }

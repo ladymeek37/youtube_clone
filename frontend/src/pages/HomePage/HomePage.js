@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import SearchBar from "../../components/SearchBar/SearchBar";
+import "./HomePage.css"
 
 import axios from "axios";
 
@@ -31,9 +32,26 @@ const HomePage = () => {
   return (
     <div className="container">
       <SearchBar setVideos = {setVideos}/>
-      <iframe id="ytplayer" type="text/html" width="320" height="180"
-      src="https://www.youtube.com/embed/M7lc1UVf-VE?autoplay=1&origin=http://example.com"
-      frameborder="0"></iframe>
+      <div class = 'homepagevideocontainer parent'>
+        <iframe class = "child" id="ytplayer" type="text/html" width="320" height="180"
+        src="https://www.youtube.com/embed/bd4co_Fiwtw"
+        frameborder="0"></iframe>
+        <iframe class = "child" id="ytplayer" type="text/html" width="320" height="180"
+        src="https://www.youtube.com/embed/-MhJ3QdVv4M"
+        frameborder="0"></iframe>
+        <iframe class = "child" id="ytplayer" type="text/html" width="320" height="180"
+        src="https://www.youtube.com/embed/EzLQPTIxOZU"
+        frameborder="0"></iframe>
+        <iframe class = "child" id="ytplayer" type="text/html" width="320" height="180"
+        src="https://www.youtube.com/embed/FVhG30-_G40"
+        frameborder="0"></iframe>
+        <iframe class = "child" id="ytplayer" type="text/html" width="320" height="180"
+        src="https://www.youtube.com/embed/xK7LAKFYO0E"
+        frameborder="0"></iframe>
+        <iframe class = "child" id="ytplayer" type="text/html" width="320" height="180"
+        src="https://www.youtube.com/embed/eYpEiksL0y8"
+        frameborder="0"></iframe>
+      </div>
     </div>
   );
 };

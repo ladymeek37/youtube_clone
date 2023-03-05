@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import axios from 'axios';
+import "./SearchBar.css";
 
 const SearchBar = (props) => {
 const [searchTerm, setSearchTerm] = useState('');
@@ -13,7 +14,7 @@ const [searchTerm, setSearchTerm] = useState('');
     }
 
     return (
-        <div>
+    <div class = "searchbar">
         <form onSubmit={handleSubmit} class = 'searchbarform'>
         <label >SEARCH FOR VIDEOS HERE:</label>
         <input type='text' value={searchTerm} onChange={(event)=> setSearchTerm(event.target.value)}/>
