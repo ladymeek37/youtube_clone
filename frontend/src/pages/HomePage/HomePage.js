@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
+import SearchBar from "../../components/SearchBar/SearchBar";
 
 import axios from "axios";
 
@@ -10,6 +11,7 @@ const HomePage = () => {
   //TODO: Add an AddCars Page to add a car for a logged in user's garage
   const [user, token] = useAuth();
   const [cars, setCars] = useState([]);
+  const [videos, setVideos] = useState([]);
 
   useEffect(() => {
     const fetchCars = async () => {
@@ -28,13 +30,10 @@ const HomePage = () => {
   }, [token]);
   return (
     <div className="container">
-      <h1>Home Page for {user.username}!</h1>
-      {cars &&
-        cars.map((car) => (
-          <p key={car.id}>
-            {car.year} {car.model} {car.make}
-          </p>
-        ))}
+      <SearchBar setVideos = {setVideos}/>
+      <iframe id="ytplayer" type="text/html" width="320" height="180"
+      src="https://www.youtube.com/embed/M7lc1UVf-VE?autoplay=1&origin=http://example.com"
+      frameborder="0"></iframe>
     </div>
   );
 };
