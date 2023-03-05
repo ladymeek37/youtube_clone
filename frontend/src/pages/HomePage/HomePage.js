@@ -33,24 +33,42 @@ const HomePage = () => {
     <div className="container">
       <SearchBar setVideos = {setVideos}/>
       <div class = 'homepagevideocontainer parent'>
-        <iframe class = "child" id="ytplayer" type="text/html" width="320" height="180"
-        src="https://www.youtube.com/embed/bd4co_Fiwtw"
-        frameborder="0"></iframe>
-        <iframe class = "child" id="ytplayer" type="text/html" width="320" height="180"
-        src="https://www.youtube.com/embed/-MhJ3QdVv4M"
-        frameborder="0"></iframe>
-        <iframe class = "child" id="ytplayer" type="text/html" width="320" height="180"
-        src="https://www.youtube.com/embed/EzLQPTIxOZU"
-        frameborder="0"></iframe>
-        <iframe class = "child" id="ytplayer" type="text/html" width="320" height="180"
-        src="https://www.youtube.com/embed/FVhG30-_G40"
-        frameborder="0"></iframe>
-        <iframe class = "child" id="ytplayer" type="text/html" width="320" height="180"
-        src="https://www.youtube.com/embed/xK7LAKFYO0E"
-        frameborder="0"></iframe>
-        <iframe class = "child" id="ytplayer" type="text/html" width="320" height="180"
-        src="https://www.youtube.com/embed/eYpEiksL0y8"
-        frameborder="0"></iframe>
+        <div class = "child" >
+          <iframe id="ytplayer" type="text/html" width="320" height="180"
+          src="https://www.youtube.com/embed/bd4co_Fiwtw"
+          frameborder="0"></iframe>
+          <p class = "videotitle">Krooked's "Magic Art Supplies" Video</p>          
+        </div>
+        <div class = "child">
+          <iframe id="ytplayer" type="text/html" width="320" height="180"
+          src="https://www.youtube.com/embed/-MhJ3QdVv4M"
+          frameborder="0"></iframe>
+          <p class = "videotitle">Lizzie Armanto's "Fire" Part</p>          
+        </div>
+        <div class = "child">
+          <iframe id="ytplayer" type="text/html" width="320" height="180"
+          src="https://www.youtube.com/embed/EzLQPTIxOZU"
+          frameborder="0"></iframe>
+          <p class = "videotitle">"Altitude Sickness" Video</p>          
+        </div>
+        <div class = "child">
+          <iframe id="ytplayer" type="text/html" width="320" height="180"
+          src="https://www.youtube.com/embed/FVhG30-_G40"
+          frameborder="0"></iframe> 
+          <p class = "videotitle"> The UNINVITED 3</p>                   
+        </div>
+        <div class = "child">
+          <iframe id="ytplayer" type="text/html" width="320" height="180"
+          src="https://www.youtube.com/embed/xK7LAKFYO0E"
+          frameborder="0"></iframe>
+          <p class = "videotitle">Anti Hero Destination Unknown</p>          
+        </div>
+        <div class = "child">
+          <iframe id="ytplayer" type="text/html" width="320" height="180"
+          src="https://www.youtube.com/embed/eYpEiksL0y8"
+          frameborder="0"></iframe>
+          <p class = "videotitle">Ronnie Sandoval's "Firme" Part</p>          
+        </div>
       </div>
     </div>
   );

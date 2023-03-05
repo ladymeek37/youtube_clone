@@ -16,8 +16,8 @@ const [searchTerm, setSearchTerm] = useState('');
     return (
     <div class = "searchbar">
         <form onSubmit={handleSubmit} class = 'searchbarform'>
-        <label >SEARCH FOR VIDEOS HERE:</label>
-        <input type='text' value={searchTerm} onChange={(event)=> setSearchTerm(event.target.value)}/>
+        <label >Search for videos:</label>
+        <input class = "inputbox" type='text' value={searchTerm} onChange={(event)=> setSearchTerm(event.target.value)}/>
         <button class = "SearchBarButton" type='submit' >SUBMIT</button> 
         </form>
     </div>  

@@ -1,3 +1,11 @@
 .searchbar{
-    text-align:center
+    margin-top: 70px;
+    text-align:center;
+    font-size:x-large;
+}
+.inputbox{
+    width: 20%;
+    padding: 12px 20px;
+    margin: 10px;
+    border-radius: 5px;
 }

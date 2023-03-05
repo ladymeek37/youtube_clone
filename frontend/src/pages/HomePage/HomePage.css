@@ -3,14 +3,20 @@
     flex-flow: row wrap;
     justify-content:space-around;
     gap: 80px;
-    padding: 200px;
+    padding-top: 85px;
+    padding-bottom: 100px;
+    padding-left: 150px;
+    padding-right: 150px;
 }
 
 .parent {
     display: flex;
-    height: 400px; /* Or whatever */
   }
   
-  .child {
+.child {
     margin: auto
-  }
+}
+.videotitle{
+    font-size:medium;
+    text-align: center;
+}

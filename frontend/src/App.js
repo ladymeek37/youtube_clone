@@ -33,7 +33,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
       </Routes>
       {/* <p>{KEY}</p> */}
-      <Footer />
+      {/* <Footer /> */}
     </div>
 
   );
