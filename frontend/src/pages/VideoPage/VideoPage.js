@@ -1,0 +1,86 @@
+import axios from 'axios';
+import React,{useState}from 'react';
+import { useParams } from 'react-router-dom';
+
+const VideoPage = () => {
+    const {videoId} = useParams()
+    const [video, setVideo] = useState({
+        "kind": "youtube#video",
+        "etag": "CoTBLs4cRowTvNN0U1J1kDw5jws",
+        "id": "JnhIiMBdK_c",
+        "snippet": {
+            "publishedAt": "2023-03-06T17:10:04Z",
+            "channelId": "UCt16NSYjauKclK67LCXvQyA",
+            "title": "Foundation's \"Whippersnappers\" Video",
+            "description": "Keegan McCutchen sets the stage with his first part for the F Troop, followed by a barrage of heavy rips from the whole squad. Aidan Campbell earns the curtain call with a jaw-dropping offering for the ages. \r\n\r\nKeep up with Thrasher Magazine here:\r\nhttp://www.thrashermagazine.com\r\nhttp://www.facebook.com/thrashermagazine\r\nhttp://www.instagram.com/thrashermag\r\nhttp://www.twitter.com/thrashermag",
+            "thumbnails": {
+                "default": {
+                    "url": "https://i.ytimg.com/vi/JnhIiMBdK_c/default.jpg",
+                    "width": 120,
+                    "height": 90
+                },
+                "medium": {
+                    "url": "https://i.ytimg.com/vi/JnhIiMBdK_c/mqdefault.jpg",
+                    "width": 320,
+                    "height": 180
+                },
+                "high": {
+                    "url": "https://i.ytimg.com/vi/JnhIiMBdK_c/hqdefault.jpg",
+                    "width": 480,
+                    "height": 360
+                },
+                "standard": {
+                    "url": "https://i.ytimg.com/vi/JnhIiMBdK_c/sddefault.jpg",
+                    "width": 640,
+                    "height": 480
+                },
+                "maxres": {
+                    "url": "https://i.ytimg.com/vi/JnhIiMBdK_c/maxresdefault.jpg",
+                    "width": 1280,
+                    "height": 720
+                }
+            },
+            "channelTitle": "ThrasherMagazine",
+            "tags": [
+                "Thrasher",
+                "Magazine",
+                "Thrasher Magazine",
+                "King Of The Road",
+                "Firing Line",
+                "Double Rock",
+                "Skateboarding",
+                "Skate",
+                "Kickflip",
+                "Hall of Meat",
+                "Full Part"
+            ],
+            "categoryId": "17",
+            "liveBroadcastContent": "none",
+            "defaultLanguage": "en",
+            "localized": {
+                "title": "Foundation's \"Whippersnappers\" Video",
+                "description": "Keegan McCutchen sets the stage with his first part for the F Troop, followed by a barrage of heavy rips from the whole squad. Aidan Campbell earns the curtain call with a jaw-dropping offering for the ages. \r\n\r\nKeep up with Thrasher Magazine here:\r\nhttp://www.thrashermagazine.com\r\nhttp://www.facebook.com/thrashermagazine\r\nhttp://www.instagram.com/thrashermag\r\nhttp://www.twitter.com/thrashermag"
+            },
+            "defaultAudioLanguage": "en-US"
+        }
+    })
+
+    const getVideoByVidID = async() => {
+        await axios
+        .get(`https://www.googleapis.com/youtube/v3/videos?id=${videoId}&key=AIzaSyD52HNqidEvinYxxLhaIq9FRt-l57Dc6EI&part=snippet`)
+        .then(response => setVideo(response.data.items[0]))
+    }
+
+    return(
+    <div>
+        <button onClick={()=>getVideoByVidID()}>Click for vid</button>
+        <iframe id="ytplayer" type="text/html" width="640" height="360"
+        src={`https://www.youtube.com/embed/${videoId}`}
+        frameborder="0"></iframe>
+        <p>{video.snippet&&video.snippet.title}</p> 
+        {/* short circuit evaulation */}
+    </div>
+    )
+}
+
+export default VideoPage

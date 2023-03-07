@@ -19,4 +19,9 @@
 .videotitle{
     font-size:medium;
     text-align: center;
+    width: 320px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
 }
