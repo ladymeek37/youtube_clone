@@ -1,6 +1,8 @@
 import axios from 'axios';
 import React,{useState}from 'react';
 import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import RelatedVideosMapper from '../../components/RelatedVideosMapper/RelatedVideosMapper';
 
 const VideoPage = () => {
     const {videoId} = useParams()
@@ -64,6 +66,7 @@ const VideoPage = () => {
             "defaultAudioLanguage": "en-US"
         }
     })
+    const [relatedVideos, setRelatedVideos] = useState([])
 
     const getVideoByVidID = async() => {
         await axios
@@ -71,16 +74,33 @@ const VideoPage = () => {
         .then(response => setVideo(response.data.items[0]))
     }
 
+    const getRelatedVideos = async() => {
+        await axios
+        .get(`https://www.googleapis.com/youtube/v3/search?relatedToVideoId=${videoId}&type=video&key=AIzaSyD52HNqidEvinYxxLhaIq9FRt-l57Dc6EI&part=snippet`)
+        .then(response => {setRelatedVideos(response.data.items);console.log(response.data.items)})
+      
+    }
+
+
     return(
-    <div>
-        <button onClick={()=>getVideoByVidID()}>Click for vid</button>
-        <iframe id="ytplayer" type="text/html" width="640" height="360"
-        src={`https://www.youtube.com/embed/${videoId}`}
-        frameborder="0"></iframe>
-        <p>{video.snippet&&video.snippet.title}</p> 
-        {/* short circuit evaulation */}
-    </div>
-    )
-}
+        <div>
+            <div>
+                <button onClick={()=>getVideoByVidID()}>Click for vid</button>
+                <iframe id="ytplayer" type="text/html" width="640" height="360"
+                src={`https://www.youtube.com/embed/${videoId}`}
+                frameborder="0"></iframe>
+                <p>{video.snippet&&video.snippet.title}</p> 
+                {/* short circuit evaulation */}
+            <div>
+            <div>
+                <button onClick={() => getRelatedVideos()}>Get Related Videos</button>
+                <h1>Related Videos:</h1>
+                <RelatedVideosMapper videos = {relatedVideos}/>
+                <p class = "videotitle" maxlength="10"> {video.snippet.title}</p>
+            </div>
+                </div>
+            </div>
+        </div>
+    )}
 
 export default VideoPage
