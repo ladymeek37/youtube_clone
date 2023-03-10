@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React,{useState}from 'react';
 import { useParams } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import CommentsList from '../../components/CommentList/CommentList';
 import RelatedVideosMapper from '../../components/RelatedVideosMapper/RelatedVideosMapper';
 
 const VideoPage = () => {
@@ -82,23 +82,26 @@ const VideoPage = () => {
     }
 
 
+
+
     return(
         <div>
             <div>
                 <button onClick={()=>getVideoByVidID()}>Click for vid</button>
+                <h1>{video.snippet&&video.snippet.title}</h1> 
                 <iframe id="ytplayer" type="text/html" width="640" height="360"
                 src={`https://www.youtube.com/embed/${videoId}`}
                 frameborder="0"></iframe>
-                <p>{video.snippet&&video.snippet.title}</p> 
                 {/* short circuit evaulation */}
-            <div>
+            </div>
             <div>
                 <button onClick={() => getRelatedVideos()}>Get Related Videos</button>
                 <h1>Related Videos:</h1>
                 <RelatedVideosMapper videos = {relatedVideos}/>
                 <p class = "videotitle" maxlength="10"> {video.snippet.title}</p>
             </div>
-                </div>
+            <div>
+                <CommentsList video = {videoId}/>
             </div>
         </div>
     )}
