@@ -44,9 +44,9 @@ const CommentForm = ({video, getCommentsByVidId}) => {
     return ( 
         <form onSubmit={onSubmit}>
             <div class = "commentform">
-                <label>New comment:</label>
+                <label>New comment:&nbsp;&nbsp;&nbsp;</label>
                 <input class = "input" type = 'string' className = 'form-control' value = {comment} onChange={(event) => setComment(event.target.value)}/>
-                <button class = 'CommentFormButton' type = 'submit' style = {{'margin-top': '1em'}}>ADD COMMENT</button>
+                &nbsp;&nbsp;&nbsp;<button class = 'CommentFormButton' type = 'submit' style = {{'margin-top': '1em'}}>ADD COMMENT</button>
             </div>
         </form>
 
