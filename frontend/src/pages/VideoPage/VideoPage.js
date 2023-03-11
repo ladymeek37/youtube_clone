@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React,{useState}from 'react';
+import React, {useState, useEffect}from 'react';
 import { useParams } from 'react-router-dom';
 import CommentsList from '../../components/CommentList/CommentList';
 import CommentsSection from '../../components/CommentsSection/CommentsSection';
@@ -69,6 +69,14 @@ const VideoPage = () => {
     })
     const [relatedVideos, setRelatedVideos] = useState([])
 
+    useEffect(() => {
+        getVideoByVidID();
+    });
+
+    useEffect(() => {
+        getRelatedVideos();
+    })
+
     const getVideoByVidID = async() => {
         await axios
         .get(`https://www.googleapis.com/youtube/v3/videos?id=${videoId}&key=AIzaSyD52HNqidEvinYxxLhaIq9FRt-l57Dc6EI&part=snippet`)
@@ -88,7 +96,6 @@ const VideoPage = () => {
     return(
         <div>
             <div>
-                <button onClick={()=>getVideoByVidID()}>Click for vid</button>
                 <h1>{video.snippet&&video.snippet.title}</h1> 
                 <iframe id="ytplayer" type="text/html" width="640" height="360"
                 src={`https://www.youtube.com/embed/${videoId}`}
@@ -96,7 +103,7 @@ const VideoPage = () => {
                 {/* short circuit evaulation */}
             </div>
             <div>
-                <button onClick={() => getRelatedVideos()}>Get Related Videos</button>
+                {/* <button onClick={() => getRelatedVideos()}>Get Related Videos</button> */}
                 <h1>Related Videos:</h1>
                 <RelatedVideosMapper videos = {relatedVideos}/>
                 <p class = "videotitle" maxlength="10"> {video.snippet.title}</p>

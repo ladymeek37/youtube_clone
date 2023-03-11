@@ -23,6 +23,7 @@ const CommentsSection = (props) => {
 
     return ( 
         <div>
+            <h1>Comments</h1>
             <CommentsList getCommentsByVidId = {getCommentsByVidId} comments = {comments}/>
             <CommentForm video = {videoId} getCommentsByVidId = {getCommentsByVidId}  />
         </div>
