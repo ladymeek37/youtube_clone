@@ -2,6 +2,7 @@ import axios from 'axios';
 import React,{useState}from 'react';
 import { useParams } from 'react-router-dom';
 import CommentsList from '../../components/CommentList/CommentList';
+import CommentsSection from '../../components/CommentsSection/CommentsSection';
 import RelatedVideosMapper from '../../components/RelatedVideosMapper/RelatedVideosMapper';
 
 const VideoPage = () => {
@@ -101,7 +102,7 @@ const VideoPage = () => {
                 <p class = "videotitle" maxlength="10"> {video.snippet.title}</p>
             </div>
             <div>
-                <CommentsList video = {videoId}/>
+                <CommentsSection video = {videoId}/>
             </div>
         </div>
     )}
