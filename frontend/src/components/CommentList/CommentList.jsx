@@ -1,5 +1,6 @@
 import React, {useEffect} from 'react';
 import CommentsMapper from '../CommentsSection/CommentsMapper';
+import './CommentsList.css';
 
 const CommentsList = ({getCommentsByVidId, comments}) => { 
 
@@ -9,7 +10,7 @@ const CommentsList = ({getCommentsByVidId, comments}) => {
 
     return ( 
 
-        <div>
+        <div class = 'commentsmapperlist'>
             <CommentsMapper comments = {comments} />
         </div>
 

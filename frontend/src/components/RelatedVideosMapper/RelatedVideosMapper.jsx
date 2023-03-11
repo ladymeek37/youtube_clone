@@ -14,9 +14,9 @@ return (
 
 const RelatedVideosMapper = ({videos}) => {
     return ( 
-        <ul>
-            {videos.map(video => <RelatedVideosPresenter key = {video.id} video = {video} />)}
-        </ul>
+        <li>
+            {videos.map(video => <RelatedVideosPresenter video = {video} />)}
+        </li>
      );
 }
  

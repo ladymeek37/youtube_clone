@@ -4,6 +4,7 @@ import CommentsList from '../CommentList/CommentList';
 import CommentForm from '../CommentForm/CommentForm';
 import { useState } from 'react';
 import axios from 'axios';
+import './CommentsSection.css';
 
 const CommentsSection = (props) => {
     const {videoId} = useParams()
@@ -22,10 +23,14 @@ const CommentsSection = (props) => {
     }
 
     return ( 
-        <div>
-            <h1>Comments</h1>
-            <CommentsList getCommentsByVidId = {getCommentsByVidId} comments = {comments}/>
-            <CommentForm video = {videoId} getCommentsByVidId = {getCommentsByVidId}  />
+        <div class = "section">
+            <h1 class = 'title'>Comments</h1>
+            <br />
+            <CommentForm video = {videoId} getCommentsByVidId = {getCommentsByVidId}  />  
+            <br />          
+            <CommentsList class = 'commentslist' getCommentsByVidId = {getCommentsByVidId} comments = {comments}/>
+            <br />
+            <br />
         </div>
      );
 }

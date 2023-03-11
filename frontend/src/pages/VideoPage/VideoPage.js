@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import CommentsList from '../../components/CommentList/CommentList';
 import CommentsSection from '../../components/CommentsSection/CommentsSection';
 import RelatedVideosMapper from '../../components/RelatedVideosMapper/RelatedVideosMapper';
+import './VideoPage.css';
 
 const VideoPage = () => {
     const {videoId} = useParams()
@@ -75,7 +76,7 @@ const VideoPage = () => {
 
     useEffect(() => {
         getRelatedVideos();
-    })
+    }, [])
 
     const getVideoByVidID = async() => {
         await axios
@@ -95,20 +96,26 @@ const VideoPage = () => {
 
     return(
         <div>
-            <div>
-                <h1>{video.snippet&&video.snippet.title}</h1> 
-                <iframe id="ytplayer" type="text/html" width="640" height="360"
-                src={`https://www.youtube.com/embed/${videoId}`}
-                frameborder="0"></iframe>
-                {/* short circuit evaulation */}
+            <div class = "parent">
+                <div class = "child mainvideo">
+                    <h1>{video.snippet&&video.snippet.title}</h1>
+                    <br />
+                    <br />
+                    <iframe id="ytplayer" type="text/html" width="640" height="360"
+                    src={`https://www.youtube.com/embed/${videoId}`}
+                    frameborder="0"></iframe>
+                    <p class = "description">{video.snippet.description}</p>
+                    {/* short circuit evaulation */}
+                </div>
+                <div class = "child relatedvideos">
+                    {/* <button onClick={() => getRelatedVideos()}>Get Related Videos</button> */}
+                    <h1>Related Videos:</h1>
+                    <br />
+                    <RelatedVideosMapper videos = {relatedVideos}/>
+                    <p class = "videotitle" maxlength="10"> {video.snippet.title}</p>
+                </div>
             </div>
-            <div>
-                {/* <button onClick={() => getRelatedVideos()}>Get Related Videos</button> */}
-                <h1>Related Videos:</h1>
-                <RelatedVideosMapper videos = {relatedVideos}/>
-                <p class = "videotitle" maxlength="10"> {video.snippet.title}</p>
-            </div>
-            <div>
+            <div class = "comments">
                 <CommentsSection video = {videoId}/>
             </div>
         </div>

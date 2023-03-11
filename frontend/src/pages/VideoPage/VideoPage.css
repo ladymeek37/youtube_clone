@@ -1,0 +1,16 @@
+
+.description{
+    font-size: small;
+    width:650px
+}
+.relatedvideos{
+    flex-wrap: wrap;
+    list-style-type: none;
+    padding:50px;
+}
+.mainvideo{
+    padding:60px
+}
+.child{
+    margin: 60px;
+}
